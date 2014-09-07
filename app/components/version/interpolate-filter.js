@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TagGenApp.version.interpolate-filter', [])
+angular.module('LabelGeneratorApp.version.interpolate-filter', [])
 
 .filter('interpolate', ['version', function(version) {
   return function(text) {

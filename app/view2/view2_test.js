@@ -1,8 +1,8 @@
 'use strict';
 
-describe('TagGenApp.view2 module', function() {
+describe('LabelGeneratorApp.view2 module', function() {
 
-  beforeEach(module('TagGenApp.view2'));
+  beforeEach(module('LabelGeneratorApp.view2'));
 
   describe('view2 controller', function(){
 

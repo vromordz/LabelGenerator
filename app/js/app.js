@@ -1,12 +1,12 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('TagGenApp', [
+angular.module('LabelGeneratorApp', [
   'ngRoute',
-  'TagGenApp.view1',
-  'TagGenApp.view2',
-  'TagGenApp.version'
+  'LabelGeneratorApp.labels',
+  'LabelGeneratorApp.view2',
+  'LabelGeneratorApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/labels'});
 }]);

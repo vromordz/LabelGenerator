@@ -1,0 +1,32 @@
+{
+  "labels": [
+    { 
+      "name": 			"SAYA-M140-36",
+      "template":		"SAYA-M140-36.png",
+      "model_id":   140,
+      "barcode_x":  10,
+      "barcode_y":  20,
+      "date_x":     5,
+      "date_y":     20
+    },
+    { 
+      "name": 			"SAYA-M300-72",
+      "template": 	"SAYA-M300-72.png",
+      "model_id":   300,
+      "barcode_x":  10,
+      "barcode_y":  20,
+      "date_x":     5,
+      "date_y":     20
+    },
+    { 
+      "name": 			"SAYA-P190-54",
+      "template": 	"SAYA-P190-54.png",
+      "model_id":   190,
+      "barcode_x":  10,
+      "barcode_y":  20,
+      "date_x":     5,
+      "date_y":     20
+    }
+  ],
+  "counter": 456
+}

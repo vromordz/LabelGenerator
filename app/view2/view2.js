@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TagGenApp.view2', ['ngRoute'])
+angular.module('LabelGeneratorApp.view2', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {

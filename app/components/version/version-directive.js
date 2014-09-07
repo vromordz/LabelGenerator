@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TagGenApp.version.version-directive', [])
+angular.module('LabelGeneratorApp.version.version-directive', [])
 
 .directive('appVersion', ['version', function(version) {
   return function(scope, elm, attrs) {
