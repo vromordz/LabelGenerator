@@ -8,6 +8,10 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+.smaller {
+	font-size: small;
+}
+
 footer {
     margin: 50px 0;
 }
@@ -22,4 +26,12 @@ img.barcode {
 	width: 400px;
 	display: block;
   margin: 0 auto;
+}
+
+.labelrow {
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-bottom-color: #eee;
+	margin-bottom: 25px;
+	padding-bottom: 15px;
 }

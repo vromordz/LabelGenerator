@@ -5,9 +5,14 @@ var dbURL = 'db/';
 angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/labels', {
+  $routeProvider
+  .when('/labels', {
     templateUrl: 'labels/labels.html',
     controller: 'labelsCtrlList'
+  })
+  .when('/labels/:id', {
+    templateUrl: 'labels/generatelabel.html',
+    controller: 'labelsCtrlShow'
   });
 }])
 
@@ -28,14 +33,20 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 
 .controller('labelsCtrlList', ['$scope', '$http', function($scope, $http) {
 	$scope.dbURL = dbURL;
+	$scope.labelDate = new Date();
+	$scope.labelQuantity = 1;
 
 	$http.get(dbURL + 'index.json', { cache: false })
 		.success(function(data, status) {
 			$scope.labels = data.labels;
 			$scope.counter= data.counter;
-			console.log(status);
 		})
 		.error(function(data, status) {
 			console.log(status);
 		});
+}])
+
+.controller('labelsCtrlShow', ['$scope', '$routeParams', function($scope, $routeParams) {
+	$scope.dbURL = dbURL;
+	$scope.labelid = $routeParams.id;
 }]);

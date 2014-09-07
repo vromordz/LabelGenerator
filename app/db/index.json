@@ -1,26 +1,32 @@
 {
   "labels": [
     { 
-      "name": 			"SAYA-M140-36",
+      "name": 			"Panel Fotovoltaico",
+      "model":			"SAYA-M140-36",
       "template":		"SAYA-M140-36.png",
       "model_id":   140,
+      "description":"Pm: 140W, Voc: 22.00V, Isc: 8.45A, Vmp: 18.20V, Imp: 7.70A, Voltaje Maximo: 1000V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1476 x 676 x 35 mm, Peso: 10.50Kg ",
       "barcode_x":  10,
       "barcode_y":  20,
       "date_x":     5,
       "date_y":     20
     },
     { 
-      "name": 			"SAYA-M300-72",
+    	"name": 			"Panel Fotovoltaico",
+      "model": 			"SAYA-M300-72",
       "template": 	"SAYA-M300-72.png",
       "model_id":   300,
+      "description":"Pm: 300W, Voc: 43.65V, Isc: 8.82A, Vmp: 36.55V, Imp: 7.95A, Voltaje Maximo: 1000V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1950 x 992 x 50 mm, Peso: 23Kg ",
       "barcode_x":  10,
       "barcode_y":  20,
       "date_x":     5,
       "date_y":     20
     },
     { 
-      "name": 			"SAYA-P190-54",
+      "name": 			"Panel Fotovoltaico",
+      "model": 			"SAYA-P190-54",
       "template": 	"SAYA-P190-54.png",
+      "description":"Pm: 190W, Voc: 32.20V, Isc: 7.85A, Vmp: 26.75V, Imp: 6.92A, Voltaje Maximo: 1000V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1476 x 992 x 35 mm, Peso: 18.00Kg ",
       "model_id":   190,
       "barcode_x":  10,
       "barcode_y":  20,
