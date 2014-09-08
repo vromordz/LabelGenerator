@@ -9,11 +9,12 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
   .when('/labels', {
     templateUrl: 'labels/labels.html',
     controller: 'labelsCtrlList'
-  })
-  .when('/labels/:id', {
-    templateUrl: 'labels/generatelabel.html',
-    controller: 'labelsCtrlShow'
   });
+}])
+
+.run([ '$rootScope', function($rootScope) {
+	$rootScope.label_date = new Date();
+	$rootScope.label_qty = 1;
 }])
 
 .filter('leadingZero', function () {
@@ -31,40 +32,54 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
   };
 })
 
-.controller('labelsCtrlList', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+.controller('labelsCtrlList', ['$rootScope', '$scope', '$http', '$filter', function($rootScope, $scope, $http, $filter) {
 	$scope.dbURL = dbURL;
-	$scope.labelDate = new Date();
-	$scope.labelQuantity = 1;
 
 	$scope.printLabel = function(label) {
-		var date_w_format      = $filter('date')($scope.labelDate, 'dd/MM/yyyy');
+		var date_w_format      = $filter('date')($rootScope.label_date, 'dd/MM/yyyy');
 
 		var background 	= $scope.dbURL + label.template,
-				barcode_txt = 'SAYA-'+label.model_id+counter_leading_0s,
-				barcode 		= '<img src="http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data='+barcode_txt+'&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm">',
 				popupWin		= new Array;
 
-		console.log($scope.labelQuantity);
+		console.log(label.quantity);
 		console.log($scope.counter);
-		for (var i = $scope.labelQuantity - 1; i >= 0; i--) {
-			var counter_leading_0s = $filter('leadingZero')($scope.counter, 8);
+		for (var i = label.quantity - 1; i >= 0; i--) {
+			var counter_leading_0s = $filter('leadingZero')($scope.counter, 8),
+					barcode_txt = 'SAYA-'+label.model_id+counter_leading_0s,
+					barcode 		= '<img src="http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data='+barcode_txt+'&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm">';
 			console.log(i);
 			console.log(counter_leading_0s);
 
-			popupWin[i] = window.open('', '_blank');
+			popupWin[i] = window.open('', barcode_txt);
 			popupWin[i].document.open();
 	  	popupWin[i].document.write([
 	  		'<html>',
 	  		'	<head>',
-	  		'		<title>'+label.model+'</title>',
+	  		'		<title>'+barcode_txt+'</title>',
 		  	'		<style>',
+		  	'			@page {',
+		  	'				size: auto;',
+		  	'				margin: 0mm;',
+		  	'			}',
 	  		'			body {',
-	    	'				margin: 0px;',
+	    	'				margin: 0mm;',
 				'			}>',
 				'		</style>',
+				'		<script>',
+				'			function printLabel(printableArea) {',
+     		'				var printContents = document.getElementById(printableArea).innerHTML;',
+     		'				var originalContents = document.body.innerHTML;',
+				'				document.body.innerHTML = printContents;',
+				'				window.print();',
+				'				document.body.innerHTML = originalContents;',
+				'			}',
+				'		</script>',
 				'	</head>',
-				'	<body>',
-				'		<div style="position:relative;">',
+				'	<body onload="printLabel(\'printableLabel\')">',
+				// '		<div style="position:absolute; top: 25px; right: 0px; z-index: 4;">',
+				// '			<input type="button" onclick="printLabel(\'printableLabel\')" value="Print">',
+				// '		</div>',
+				'		<div id="printableLabel" style="position:relative;">',
 				' 		<div style="position:absolute; top: 0px; left: 0px; z-index: 1;">',
 				'				<img src="'+background+'">',
 				'			</div>',
@@ -87,15 +102,13 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 	$http.get(dbURL + 'index.json', { cache: false })
 		.success(function(data, status) {
 			$scope.labels = data.labels;
+			angular.forEach($scope.labels, function(value, key) {
+				value.quantity 	= 1;
+				value.date 			= new Date();
+			});
 			$scope.counter= data.counter;
 		})
 		.error(function(data, status) {
 			console.log(status);
 		});
-}])
-
-.controller('labelsCtrlShow', ['$scope', '$routeParams', function($scope, $routeParams) {
-	$scope.dbURL = dbURL;
-	$scope.labelid = $routeParams.id;
-	console.log($scope.labelid);
 }]);

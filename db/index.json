@@ -17,21 +17,43 @@
       "template": 	"SAYA-M300-72.png",
       "model_id":   300,
       "description":"Pm: 300W, Voc: 43.65V, Isc: 8.82A, Vmp: 36.55V, Imp: 7.95A, Voltaje Maximo: 1000V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1950 x 992 x 50 mm, Peso: 23Kg ",
-      "barcode_top":  10,
-      "barcode_left": 20,
-      "date_top":     5,
-      "date_left":    20
+      "barcode_top":  1226,
+      "barcode_left": 458,
+      "date_top":     1240,
+      "date_left":    159
     },
     { 
       "name": 			"Panel Fotovoltaico",
       "model": 			"SAYA-P190-54",
       "template": 	"SAYA-P190-54.png",
-      "description":"Pm: 190W, Voc: 32.20V, Isc: 7.85A, Vmp: 26.75V, Imp: 6.92A, Voltaje Maximo: 1000V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1476 x 992 x 35 mm, Peso: 18.00Kg ",
       "model_id":   190,
-      "barcode_top":  10,
-      "barcode_left": 20,
-      "date_top":     5,
-      "date_left":    20
+      "description":"Pm: 190W, Voc: 32.20V, Isc: 7.85A, Vmp: 26.75V, Imp: 6.92A, Voltaje Maximo: 1000V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1476 x 992 x 35 mm, Peso: 18.00Kg ",
+      "barcode_top":  1226,
+      "barcode_left": 458,
+      "date_top":     1240,
+      "date_left":    159
+    },
+    { 
+      "name":       "Panel Fotovoltaico",
+      "model":      "SAYA-M110-28",
+      "template":   "SAYA-M110-28.png",
+      "model_id":   110,
+      "description":"Pm: 110W, Voc: 16.90V, Isc: 8.65A, Vmp: 13.90V, Imp: 7.85A, Voltaje Maximo: 600V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1160 x 676 x 35 mm, Peso: 8Kg ",
+      "barcode_top":  1226,
+      "barcode_left": 458,
+      "date_top":     1240,
+      "date_left":    159
+    },
+    { 
+      "name":       "Panel Fotovoltaico",
+      "model":      "SAYA-P270-72",
+      "template":   "SAYA-P270-72.png",
+      "model_id":   270,
+      "description":"Pm: 270W, Voc: 43.15V, Isc: 8.38A, Vmp: 35.65V, Imp: 7.57A, Voltaje Maximo: 1000V, Corriente Maxima: 12A, Tolerancia: +-2%, Tamaño: 1950 x 992 x 50 mm, Peso: 23Kg ",
+      "barcode_top":  1226,
+      "barcode_left": 458,
+      "date_top":     1240,
+      "date_left":    159
     }
   ],
   "counter": 456
