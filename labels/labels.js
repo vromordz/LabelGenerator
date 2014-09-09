@@ -38,16 +38,16 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 		var date_w_format      = $filter('date')(label.made_date, 'dd/MM/yyyy');
 
 		var background 	= $scope.dbURL + label.template,
-				popupWin		= new Array;
+				popupWin; //		= new Array;
 
 		for (var i = label.quantity - 1; i >= 0; i--) {
 			var counter_leading_0s = $filter('leadingZero')($scope.counter, 8),
 					barcode_txt = 'SAYA-'+label.model_id+counter_leading_0s,
 					barcode 		= '<img src="http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data='+barcode_txt+'&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm">';
 
-			popupWin[i] = window.open('', '_blank', barcode_txt+' ('+(i+1)+')');
-			popupWin[i].document.open();
-	  	popupWin[i].document.write([
+			popupWin = window.open('about:blank', '_blank');
+			popupWin.document.open();
+	  	popupWin.document.write([
 	  		'<html>',
 	  		'	<head>',
 	  		'		<title>'+barcode_txt+'</title>',
@@ -89,7 +89,7 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 				'	</body>',
 				'</html>'
 				].join('\n'));
-	  	popupWin[i].document.close();
+	  	popupWin.document.close();
 	  	$scope.counter += 1;
 		};	  	
 	};
