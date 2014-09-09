@@ -12,9 +12,8 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
   });
 }])
 
-.run([ '$rootScope', function($rootScope) {
-	$rootScope.label_date = new Date();
-	$rootScope.label_qty = 1;
+.run([ '$rootScope', '$location', function($rootScope, $location) {
+	$rootScope.viewCRUD = ($location.host() === 'localhost');
 }])
 
 .filter('leadingZero', function () {
@@ -34,23 +33,19 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 
 .controller('labelsCtrlList', ['$rootScope', '$scope', '$http', '$filter', function($rootScope, $scope, $http, $filter) {
 	$scope.dbURL = dbURL;
-
+	
 	$scope.printLabel = function(label) {
 		var date_w_format      = $filter('date')($rootScope.label_date, 'dd/MM/yyyy');
 
 		var background 	= $scope.dbURL + label.template,
 				popupWin		= new Array;
 
-		console.log(label.quantity);
-		console.log($scope.counter);
 		for (var i = label.quantity - 1; i >= 0; i--) {
 			var counter_leading_0s = $filter('leadingZero')($scope.counter, 8),
 					barcode_txt = 'SAYA-'+label.model_id+counter_leading_0s,
 					barcode 		= '<img src="http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data='+barcode_txt+'&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm">';
-			console.log(i);
-			console.log(counter_leading_0s);
 
-			popupWin[i] = window.open('', barcode_txt);
+			popupWin[i] = window.open('', '_blank', barcode_txt+' ('+(i+1)+')');
 			popupWin[i].document.open();
 	  	popupWin[i].document.write([
 	  		'<html>',
@@ -60,6 +55,7 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 		  	'			@page {',
 		  	'				size: auto;',
 		  	'				margin: 0mm;',
+		  	'				width:210mm; height:297mm; ',
 		  	'			}',
 	  		'			body {',
 	    	'				margin: 0mm;',
@@ -75,20 +71,19 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 				'			}',
 				'		</script>',
 				'	</head>',
-				'	<body onload="printLabel(\'printableLabel\')">',
-				// '		<div style="position:absolute; top: 25px; right: 0px; z-index: 4;">',
-				// '			<input type="button" onclick="printLabel(\'printableLabel\')" value="Print">',
-				// '		</div>',
+				'	<body>', // onload="printLabel(\'printableLabel\')">',
+				'		<div style="position:absolute; top: 25px; right: 0px; z-index: 4;">',
+				'			<input type="button" onclick="printLabel(\'printableLabel\')" value="Print">',
+				'		</div>',
 				'		<div id="printableLabel" style="position:relative;">',
 				' 		<div style="position:absolute; top: 0px; left: 0px; z-index: 1;">',
-				'				<img src="'+background+'">',
+				'				<img src="'+background+'" style="width:210mm; height:296mm;">', // width:210mm; height:297mm;
 				'			</div>',
 				' 		<div style="position:absolute; top: '+label.barcode_top+'px; left: '+label.barcode_left+'px; z-index: 3;">',
 				barcode,
 				'			</div>',
-				'			</div>',
 				' 		<div style="position:absolute; top: '+label.date_top+'px; left: '+label.date_left+'px; z-index: 3;">',
-				'				<p style="font-size: 26px; font-weight: bold; font-family: serif;">'+date_w_format+'</p>',
+				'				<p style="margin: 0px; font-size: 26px; font-weight: bold; font-family: serif;">'+date_w_format+'</p>',
 				'			</div>',
 				'		</div>',
 				'	</body>',
