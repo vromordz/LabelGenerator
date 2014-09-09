@@ -35,7 +35,7 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 	$scope.dbURL = dbURL;
 	
 	$scope.printLabel = function(label) {
-		var date_w_format      = $filter('date')($rootScope.label_date, 'dd/MM/yyyy');
+		var date_w_format      = $filter('date')(label.made_date, 'dd/MM/yyyy');
 
 		var background 	= $scope.dbURL + label.template,
 				popupWin		= new Array;
@@ -99,7 +99,7 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute'])
 			$scope.labels = data.labels;
 			angular.forEach($scope.labels, function(value, key) {
 				value.quantity 	= 1;
-				value.date 			= new Date();
+				value.made_date 			= new Date();
 			});
 			$scope.counter= data.counter;
 		})
