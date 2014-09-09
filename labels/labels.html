@@ -21,19 +21,19 @@
         <div class="form-group">
           <label for="labelmodelid" class="col-md-2 control-label">Numero</label>
           <div class="col-md-10">
-            <input class="form-control" type="text" name="labelmodelid" ng-model="label.model_id" ng-minlength="3" ng-maxlength="3" ng-pattern="/^[0-9]{3}$/" placeholder="Numero de Modelo" required/>
+            <input class="form-control" type="number" name="labelmodelid" ng-model="label.model_id" ng-minlength="3" ng-maxlength="3" ng-pattern="/^[0-9]{3}$/" placeholder="Numero de Modelo" required/>
           </div>
         </div>
         <div class="form-group">
           <label for="labeldate" class="col-md-2 control-label">Fecha</label>
           <div class="col-md-10">
-            <input class="form-control" type="date" name="labeldate" ng-model="labelDate" placeholder="dd/MM/aaaa" required/>  
+            <input type="date" ng-model="label.date" class="form-control" name="labeldate">  
           </div>
         </div>
         <div class="form-group">
           <label for="labelquantity" class="col-md-2 control-label">Cantidad</label>
           <div class="col-md-10">
-            <input class="form-control" type="number" name="labelquantity" ng-model="labelQuantity" placeholder="Cantidad" required/>
+            <input class="form-control" type="number" name="labelquantity" ng-model="label.quantity" >
           </div>
         </div>
 <!-- 
@@ -49,8 +49,8 @@
       <h4>{{label.model}}</h4>
       <p>{{label.description}}</p>
       <button class="btn btn-primary" ng-click="printLabel(label);">Generar <span class="glyphicon glyphicon-chevron-right"></span></button>
-      <a class="btn btn-info" href="#">Modificar <span class="glyphicon glyphicon-chevron-right"></span></a>
-      <a class="btn btn-danger" href="#">Eliminar <span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-info" href="#" ng-show="viewCRUD">Modificar <span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-danger" href="#" ng-show="viewCRUD">Eliminar <span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
   </form>
 </div>
