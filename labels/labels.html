@@ -19,12 +19,6 @@
       <br/>
       <div class="form-horizontal" role="form">
         <div class="form-group">
-          <label for="labelmodelid" class="col-md-2 control-label">Numero</label>
-          <div class="col-md-10">
-            <input class="form-control" type="number" name="labelmodelid" ng-model="label.model_id" ng-minlength="3" ng-maxlength="3" ng-pattern="/^[0-9]{3}$/" placeholder="Numero de Modelo" required/>
-          </div>
-        </div>
-        <div class="form-group">
           <label for="labeldate" class="col-md-2 control-label">Fecha</label>
           <div class="col-md-10">
             <input type="date" ng-model="label.made_date" class="form-control" name="labeldate">  
@@ -54,35 +48,5 @@
       <a class="btn btn-danger" href="#" ng-show="viewCRUD">Eliminar <span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
   </form>
-</div>
-<!-- /.row -->
-
-<!-- Pagination -->
-<div class="row text-center">
-    <div class="col-lg-12">
-        <ul class="pagination">
-            <li>
-                <a href="#">&laquo;</a>
-            </li>
-            <li class="active">
-                <a href="#">1</a>
-            </li>
-            <li>
-                <a href="#">2</a>
-            </li>
-            <li>
-                <a href="#">3</a>
-            </li>
-            <li>
-                <a href="#">4</a>
-            </li>
-            <li>
-                <a href="#">5</a>
-            </li>
-            <li>
-                <a href="#">&raquo;</a>
-            </li>
-        </ul>
-    </div>
 </div>
 <!-- /.row -->
