@@ -34,4 +34,6 @@ img.barcode {
 	border-bottom-color: #eee;
 	margin-bottom: 25px;
 	padding-bottom: 15px;
+	margin-left: 0px;
+	margin-right: 0px;
 }
