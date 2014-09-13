@@ -4,7 +4,6 @@
 angular.module('LabelGeneratorApp', [
   'ngRoute',
   'LabelGeneratorApp.labels',
-  'LabelGeneratorApp.view2',
   'LabelGeneratorApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {

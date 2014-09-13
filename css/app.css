@@ -1,39 +1,92 @@
 /*!
- * Start Bootstrap - 1 Col Portfolio HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+* Start Bootstrap - 1 Col Portfolio HTML Template (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.
+*/
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .smaller {
-	font-size: small;
+font-size: small;
+}
+
+.counterlabel {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+  color: #777;
 }
 
 footer {
-    margin: 50px 0;
+margin: 50px 0;
 }
 
 img.labeltemplate {
-	height: 300px;
-	display: block;
-  margin: 0 auto;
+height: 300px;
+display: block;
+margin: 0 auto;
 }
 
 img.barcode {
-	width: 400px;
-	display: block;
-  margin: 0 auto;
+width: 400px;
+display: block;
+margin: 0 auto;
 }
 
 .labelrow {
-	border-bottom-style: solid;
-	border-bottom-width: thin;
-	border-bottom-color: #eee;
-	margin-bottom: 25px;
-	padding-bottom: 15px;
-	margin-left: 0px;
-	margin-right: 0px;
+border-bottom-style: solid;
+border-bottom-width: thin;
+border-bottom-color: #eee;
+margin-bottom: 25px;
+padding-bottom: 15px;
+margin-left: 0px;
+margin-right: 0px;
+}
+
+@page {
+  size: auto;
+  margin: 0mm;
+  width:210mm; 
+  height:296mm; 
+}
+
+/*.background {
+  position:absolute; 
+  top: 0px; 
+  left: 0px; 
+  z-index: 1;
+}*/
+
+.label2print {
+  position: relative; 
+  width: 236.45; /* 13.23 + 210 + 13.23 */
+  padding: 13.23mm;
+  margin: 0 auto;
+  margin-top: 25px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+.labelsheet {
+  position: relative; 
+  /*width: 210mm;*/
+  width: 900px;
+}
+
+.labelbackground {
+/*  
+  width: 900px;
+  height: 1350px;
+*/ 
+  width:210mm; 
+  height:296mm; /* A4 = 210x297 */
+}
+
+.labeldate {
+  margin: 0px; 
+  font-size: 24px; 
+  font-weight: bold; 
+  font-family: serif;
 }

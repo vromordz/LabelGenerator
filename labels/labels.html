@@ -15,7 +15,7 @@
       <img class="img-responsive labeltemplate" ng-src="{{dbURL + label.template}}" alt="{{label.template}}" align="middle">
     </div>
     <div class="col-md-4">
-      <img class="img-responsive barcode" ng-src="http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data=SAYA-{{label.model_id}}{{counter | leadingZero:8 }}&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm">
+      <img class="img-responsive barcode" ng-src="http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data=SAYA-{{label.model_id}}{{labelsDB.counter | leadingZero:8 }}&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm">
       <br/>
       <div class="form-horizontal" role="form">
         <div class="form-group">
@@ -43,7 +43,7 @@
       <h3>{{label.name}}</h3>
       <h4>{{label.model}}</h4>
       <p>{{label.description}}</p>
-      <button class="btn btn-primary" ng-click="printLabel(label);">Generar <span class="glyphicon glyphicon-chevron-right"></span></button>
+      <a class="btn btn-primary" href="#/labels/print/{{label.model}}">Generar <span class="glyphicon glyphicon-chevron-right"></span></a>
       <a class="btn btn-info" href="#" ng-show="viewCRUD">Modificar <span class="glyphicon glyphicon-chevron-right"></span></a>
       <a class="btn btn-danger" href="#" ng-show="viewCRUD">Eliminar <span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
