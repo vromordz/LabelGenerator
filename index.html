@@ -80,13 +80,13 @@
                 <div class="navbar-form navbar-right" role="search">
                   <div class="form-group" ng-hide="showPrintLabelBtn">
                     <label for="counter" class="counterlabel">Contador</label> 
-                    <input type="text" class="form-control" placeholder="Contador" ng-model="labelsDB.counter" name="counter">
+                    <input type="text" class="form-control" placeholder="Contador" ng-model="labelsDB.counter" name="counter">&nbs;
                   </div>
                   <div class="form-group" ng-hide="showPrintLabelBtn">
                     <input type="text" class="form-control" placeholder="Buscar" ng-model="searchLabel">
                   </div>
                   <div class="form-group" ng-hide="showPrintLabelBtn === undefined || ! showPrintLabelBtn">
-                    <input type="button" class="btn btn-primary" ng-click="printLabel()" value="Imprimir">
+                    <input type="button" class="btn btn-primary" ng-click="printLabel()" value="Imprimir">&nbs;
                     <input type="button" class="btn btn-danger" ng-click="cancelPrintLabel()" value="Cancelar">
                   </div>
                 </div>
