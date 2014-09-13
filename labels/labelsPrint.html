@@ -2,10 +2,10 @@
 <div class="label2print" ng-repeat="label2print in labels2print">
   <div class="labelsheet">
     <img ng-src="{{dbURL + label.template}}" class="labelbackground">
-    <div style="position:absolute; top: {{label.barcode_top}}px; left: {{label.barcode_left}}px; z-index: 3;">
+    <div ng-style="{'position':'absolute', 'top': label.barcode_top+'px', 'left': label.barcode_left+'px', 'z-index': 3}">
       <img ng-src="http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data=SAYA-{{label.model_id}}{{label2print.counter | leadingZero:8 }}&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm">
     </div>
-    <div style="position:absolute; top: {{label.date_top}}px; left: {{label.date_left}}px; z-index: 3;">
+    <div ng-style="{'position':'absolute', 'top': label.date_top+'px', 'left': label.date_left+'px', 'z-index': 3}">
       <p class="labeldate">{{label.made_date | date:'dd/MM/yyyy'}}</p>
     </div> 
   </div>
