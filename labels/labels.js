@@ -56,7 +56,7 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute', 'firebase'])
         '  @page{size:auto;margin:0;width:210mm;height:296mm}body{margin:0;background-color:#fff}.labelbackground{width:210mm;height:296mm}.labeldate{margin:0;font-size:24px;font-weight:700;font-family:serif}',
         ' </style>',
         '</head>',
-        '<body  onafterprint="self.close()">'
+        '<body>'
       ].join('\n');
     printContents += document.getElementById('printableArea').innerHTML;
     printContents += [
