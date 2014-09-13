@@ -38,8 +38,13 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute', 'firebase'])
   $rootScope.showPrintLabelBtn = false;
   LabelsCounter.$bindTo($rootScope, 'labelsDB');
 
+  $rootScope.dismissAlert = function() {
+    $rootScope.flashMessage = undefined;
+  }
+
   $rootScope.cancelPrintLabel = function() {
     $rootScope.labelsDB.counter = $rootScope.labelsDB.counter - $rootScope.label.quantity;
+    $rootScope.flashMessage = "El contador no fue modificado, ha regresado a su valor anterior ("+$rootScope.labelsDB.counter+").";
     $location.path('/');
   }
 
@@ -69,6 +74,7 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute', 'firebase'])
     popupWin.close();
     // document.body.innerHTML = originalContents;
     // $location.path('/');
+    $rootScope.flashMessage = "El contador ha incrementado en "+$rootScope.label.quantity+" su valor. De "+($rootScope.labelsDB.counter - $rootScope.label.quantity)+" a cambiado a "+$rootScope.labelsDB.counter+".";
   }
 }])
 
