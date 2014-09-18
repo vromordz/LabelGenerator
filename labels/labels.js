@@ -53,7 +53,7 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute', 'firebase'])
         '<html><head>',
         ' <title>Impresion de Etiquetas</title>',
         ' <style>',
-        '  @page{size:auto;margin:0;width:210mm;height:296mm}body{margin:0;background-color:#fff}.labelbackground{width:210mm;height:296mm}.labeldate{margin:0;font-size:24px;font-weight:700;font-family:serif}',
+        '  @page{size:auto;margin:0;width:210mm;height:296mm}body{margin:0;background-color:#fff}.labelsheet{position:relative;width:900px}.labelbackground{width:210mm;height:296mm}.labeldate{margin:0;font-size:24px;font-weight:700;font-family:serif}',
         ' </style>',
         '</head>',
         '<body>'
@@ -64,15 +64,11 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute', 'firebase'])
         ' <br/>',
         '</body></html>'
       ].join('\n');
-    // var originalContents = document.body.innerHTML;
-    // document.body.innerHTML = printContents;
-    // window.print();
     var popupWin = window.open("", "_blank");
     popupWin.document.open();
     popupWin.document.write(printContents);
     popupWin.print();
     popupWin.close();
-    // document.body.innerHTML = originalContents;
     // $location.path('/');
     $rootScope.flashMessage = "El contador ha incrementado en "+$rootScope.label.quantity+" su valor. De "+($rootScope.labelsDB.counter - $rootScope.label.quantity)+" a cambiado a "+$rootScope.labelsDB.counter+".";
   }
