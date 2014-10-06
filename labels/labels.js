@@ -50,25 +50,50 @@ angular.module('LabelGeneratorApp.labels', ['ngRoute', 'firebase'])
 
   $rootScope.printLabel = function() {
     var printContents = [
-        '<html><head>',
-        ' <title>Impresion de Etiquetas</title>',
-        ' <style>',
-        '  @page{size:auto;margin:0;width:210mm;height:296mm}body{margin:0;background-color:#fff}.labelsheet{position:relative;width:900px}.labelbackground{width:210mm;height:296mm}.labeldate{margin:0;font-size:24px;font-weight:700;font-family:serif}',
-        ' </style>',
-        '</head>',
-        '<body>'
+      '<html>',
+      '  <head>',
+      '    <style type="text/css">',
+      '      @page {',
+      '        size: auto;',
+      '        margin: 0mm;',
+      '        width: 2.95in;',
+      '        height: 4.53in;',
+      '      }',
+      '      body {',
+      '        margin: 0mm;',
+      '        background-color: white;',
+      '      }',
+      '      .labelsheet {',
+      '        position: relative;',
+      '        width: 900px;',
+      '      }',
+      '      .labelbackground {',
+      '        width: 900px;',
+      '        height: 1350px;',
+      '      }',
+      '      .labeldate {',
+      '        margin: 0px;',
+      '        font-size: 24px;',
+      '        font-weight: bold;',
+      '        font-family: serif;',
+      '      }',
+      '    </style>',
+      '    <title>Impresion de Etiquetas</title>',
+      '  </head>',
+      '  <body>',
       ].join('\n');
     printContents += document.getElementById('printableArea').innerHTML;
     printContents += [
-        ' </div>',
-        ' <br/>',
-        '</body></html>'
+      '    <br/>',
+      '  </body>',
+      '</html>',
       ].join('\n');
     var popupWin = window.open("", "_blank");
     popupWin.document.open();
     popupWin.document.write(printContents);
     popupWin.print();
     popupWin.close();
+
     // $location.path('/');
     $rootScope.flashMessage = "El contador ha incrementado en "+$rootScope.label.quantity+" su valor. De "+($rootScope.labelsDB.counter - $rootScope.label.quantity)+" a cambiado a "+$rootScope.labelsDB.counter+".";
   }

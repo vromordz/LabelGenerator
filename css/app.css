@@ -46,21 +46,18 @@ margin-right: 0px;
 @page {
   size: auto;
   margin: 0mm;
+  width: 2.95in;
+  height: 4.53in;
+/*  
   width:210mm; 
   height:296mm; 
+*/
 }
-
-/*.background {
-  position:absolute; 
-  top: 0px; 
-  left: 0px; 
-  z-index: 1;
-}*/
 
 .label2print {
   position: relative; 
-  width: 236.45; /* 13.23 + 210 + 13.23 */
-  padding: 13.23mm;
+  width: 1000px; /* 50 + 900px + 50 */
+  padding: 50px;
   margin: 0 auto;
   margin-top: 25px;
   background-color: #fff;
@@ -71,15 +68,16 @@ margin-right: 0px;
 
 .labelsheet {
   position: relative; 
-  /*width: 210mm;*/
+/*
+  width: 210mm;
+*/
   width: 900px;
 }
 
 .labelbackground {
-/*  
   width: 900px;
   height: 1350px;
-*/ 
+/* 
   width:210mm; 
   height:296mm; /* A4 = 210x297 */
 }
