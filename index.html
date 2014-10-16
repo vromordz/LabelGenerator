@@ -87,6 +87,7 @@
                   </div>
                   <div class="form-group" ng-hide="showPrintLabelBtn === undefined || ! showPrintLabelBtn">
                     <input type="button" class="btn btn-primary" ng-click="printLabel()" value="Imprimir">&nbs;
+                    <input type="button" class="btn btn-primary" ng-click="createPDF()" value="PDF">&nbs;
                     <input type="button" class="btn btn-danger" ng-click="cancelPrintLabel()" value="Cancelar">
                   </div>
                 </div>
@@ -142,6 +143,10 @@
 
   <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+
+  <script src="js/vendor/jsPDF/libs/FileSaver.js"></script>
+  <script src="js/vendor/jsPDF/jspdf.js"></script>
+  <script src="js/vendor/jsPDF/jspdf.plugin.addimage.js"></script>
 
   <!-- Application JS -->
 
